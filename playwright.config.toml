@@ -1,0 +1,22 @@
+# Playwright Configuration
+[default]
+baseURL = "https://example.com"
+testDir = "tests"
+timeout = 30000
+fullyParallel = true
+retries = 2
+workers = 1
+reporter = "html"
+use.screenshot = "only-on-failure"
+use.video = "retain-on-failure"
+use.trace = "on-first-retry"
+
+[projects.chromium]
+name = "chromium"
+use.channel = "chrome"
+
+[projects.firefox]  
+name = "firefox"
+
+[projects.webkit]
+name = "webkit"
