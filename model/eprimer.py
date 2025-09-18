@@ -1,5 +1,4 @@
 from playwright.sync_api import Page, expect
-import allure
 
 class EPrimerPage:
 
@@ -12,7 +11,6 @@ class EPrimerPage:
     _number_2 = "#test_number_2"
     _number_3 = "#test_number_3"
 
-    @allure.step("Fill text and verify results")
     def fill_text_and_verify(self, input_text, expect_1, expect_2, expect_3):
         self.p.fill(self._text_input, input_text)
         self.p.click(self._test_button)

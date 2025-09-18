@@ -1,8 +1,6 @@
 from model.eprimer import EPrimerPage
 from helper.functions import Sample
 import pytest
-import allure
-
 class TestEPrimer:
 
     data = [
@@ -15,7 +13,6 @@ class TestEPrimer:
     ]
     ids=["hamlet", "maaret", "long text", "file"]
 
-    @allure.title("Test Page with various inputs")
     @pytest.mark.parametrize("input_text, expect_1, expect_2, expect_3", data, ids=ids)
     def test_playwright(self, page_to_url, input_text, expect_1, expect_2, expect_3):
         EPrimerPage(page_to_url).fill_text_and_verify(input_text, expect_1, expect_2, expect_3)

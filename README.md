@@ -16,3 +16,6 @@ To install Allure command line: https://docs.qameta.io/allure/#_installing_a_com
 Then, use the following commands:
 - to display the report: `allure serve results`
 - to save the report: `allure generate results`
+
+@allure.title("")
+@allure.step("")
