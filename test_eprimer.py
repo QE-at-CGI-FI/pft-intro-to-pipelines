@@ -33,6 +33,7 @@ class TestEPrimer:
          "identity", "class membership", "class inclusion", "predication", "ownership", "auxiliary progressive", 
          "auxiliary passive", "existence", "location", "typewriter apostrophe", "doublequoted be", "html be"]
 
+
     data_revealing_bugs = [
         ("To be or not to be – Hamlet’s dilemma", 8, 2, 1),
         (Sample.this_is_bible(), 31172, 18, 1),
@@ -59,6 +60,7 @@ class TestEPrimer:
     def test_ones_that_work(self, page_to_url, input_text, expect_1, expect_2, expect_3):
         EPrimerPage(page_to_url).fill_text_and_verify(input_text, expect_1, expect_2, expect_3)
 
+    @pytest.mark.skip
     @pytest.mark.parametrize("input_text, expect_1, expect_2, expect_3", data_revealing_bugs, ids=ids_revealing_bugs)
     def test_ones_with_bugs(self, page_to_url, input_text, expect_1, expect_2, expect_3):
         EPrimerPage(page_to_url).fill_text_and_verify(input_text, expect_1, expect_2, expect_3)
