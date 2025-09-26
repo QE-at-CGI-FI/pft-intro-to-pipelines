@@ -14,8 +14,8 @@ You will need to install Java (open jdk) to be able to use allure cli. If you do
 To install Allure command line: https://docs.qameta.io/allure/#_installing_a_commandline 
 
 Then, use the following commands:
-- to display the report: `allure serve results`
-- to save the report: `allure generate results`
+- to display the report: `allure serve test-results`
+- to save the report: `allure generate test-results`
 
 @allure.title("")
 @allure.step("")

@@ -1,7 +1,13 @@
+import allure
 from model.eprimer import EPrimerPage
 from helper.functions import Sample
 import pytest
 class TestEPrimer:
+
+    @pytest.mark.demo
+    @allure.title("Test Demonstration")
+    def test_demo(self, page_to_url):
+        EPrimerPage(page_to_url).fill_text_and_verify("To be or not to be is Hamlet's dilemma", 9, 3, 1)
 
     data = [
         ("I went to work.", 4, 0, 0),
@@ -56,11 +62,15 @@ class TestEPrimer:
                         "typesetter apostrophe", "counting words", "singlequoted be", "newline", "newline with text", 
                         "nonstandard contractions", "two part names" ]
 
+    @allure.title("Captured things that worked at time of capture")
     @pytest.mark.parametrize("input_text, expect_1, expect_2, expect_3", data, ids=ids)
     def test_ones_that_work(self, page_to_url, input_text, expect_1, expect_2, expect_3):
         EPrimerPage(page_to_url).fill_text_and_verify(input_text, expect_1, expect_2, expect_3)
 
+    @allure.title("Bug revealing tests - currently skipped")
     @pytest.mark.skip
     @pytest.mark.parametrize("input_text, expect_1, expect_2, expect_3", data_revealing_bugs, ids=ids_revealing_bugs)
     def test_ones_with_bugs(self, page_to_url, input_text, expect_1, expect_2, expect_3):
         EPrimerPage(page_to_url).fill_text_and_verify(input_text, expect_1, expect_2, expect_3)
+
+
